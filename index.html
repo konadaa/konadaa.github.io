@@ -22,7 +22,7 @@
         }
 
         .top-bar img {
-            height: 14px;
+            height: 24px; /* Increased the size of the pizza image */
             margin-right: 0.75rem;
         }
 
@@ -46,14 +46,20 @@
             background-color: #c0c0c0;
         }
 
+        /* Ensuring full height and background color */
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #888484; /* Correct background color */
+            display: flex;
+            flex-direction: column;
+        }
+
         /* Centering the window */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #888484; /* Correct background color */
         }
 
         .window {
