@@ -2,35 +2,57 @@
 <html lang="en">
 <head>
     <title>PizzaCat's Site</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css">
     <style>
         /* Styling for the top bar */
         .top-bar {
             display: flex;
             align-items: center;
-            background-color: #e0e0e0;
-            padding: 0.5rem 1rem;
-            border-bottom: 1px solid #ccc;
+            background-color: #dcdcdc;
+            padding: 0.25rem 0.5rem;
+            border-bottom: 1px solid #a1a1a1;
+            font-family: 'Chicago', sans-serif;
+            font-size: 14px;
         }
+
         .top-bar img {
-            height: 20px;
-            margin-right: 1rem;
+            height: 14px;
+            margin-right: 0.75rem;
         }
+
         .top-bar .menu-buttons {
             display: flex;
             align-items: center;
             margin-right: auto;
         }
+
         .top-bar .menu-buttons .btn {
             margin-right: 0.5rem;
             background-color: transparent;
             border: none;
             cursor: pointer;
             padding: 0.25rem 0.5rem;
+            font-family: 'Chicago', sans-serif;
+            font-size: 14px;
         }
+
         .top-bar .menu-buttons .btn:hover {
-            background-color: #d0d0d0;
+            background-color: #c0c0c0;
+        }
+
+        /* Centering the window */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .window {
+            width: 30rem;
         }
     </style>
 </head>
@@ -46,7 +68,7 @@
         </div>
     </div>
 
-    <div class="window" style="width:30rem;">
+    <div class="window">
         <div class="title-bar"> 
             <button aria-label="Close" class="close"></button>
             <h1 class="title">GNU Nano PIZZA.CAT</h1>
@@ -59,24 +81,5 @@
         </div>
     </div>
 
-    <div class="window" style="width:30rem;">
-        <div class="title-bar"> 
-            <button aria-label="Close" class="close"></button>
-            <h1 class="title">Search</h1>
-            <button aria-label="Resize" disabled class="hidden"></button>
-        </div>
-        <div class="separator"></div>
-        
-        <div class="modeless-dialog">
-            <section class="field-row" style="justify-content: flex-start">
-                <label for="text_find" class="modeless-text">Find:</label>
-                <input id="text_find" type="text" style="width:100%;" placeholder="">
-            </section>
-            <section class="field-row" style="justify-content: flex-end">
-                <button class="btn">Cancel</button>
-                <button class="btn" style="width:95px;">Find</button>
-            </section>
-        </div>
-    </div>
-</body>
+<script src="moz-extension://0f43d3bf-47cf-4467-b87a-2543fc222b08/js/app.js" type="text/javascript"></script></body>
 </html>
