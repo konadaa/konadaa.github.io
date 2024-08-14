@@ -14,6 +14,11 @@
             border-bottom: 1px solid #a1a1a1;
             font-family: 'Chicago', sans-serif;
             font-size: 14px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         .top-bar img {
@@ -53,6 +58,7 @@
 
         .window {
             width: 30rem;
+            margin-top: 2.5rem; /* Offset to prevent overlap with top bar */
         }
     </style>
 </head>
@@ -81,5 +87,7 @@
         </div>
     </div>
 
-<script src="moz-extension://0f43d3bf-47cf-4467-b87a-2543fc222b08/js/app.js" type="text/javascript"></script></body>
+<script src="moz-extension://0f43d3bf-47cf-4467-b87a-2543fc222b08/js/app.js" type="text/javascript"></script>
+</body>
 </html>
+
