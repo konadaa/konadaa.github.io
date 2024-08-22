@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaCat's Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+        body {
+            margin: 0;
+            background-color: #262424;
+            font-family: 'Pixelify Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .top-bar {
+            background-color: #211d1d;
+            height: 60px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profile-pic {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .center-window, .social-media-window, .reviews-window {
+            background-color: #211d1d;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute;
+        }
+
+        .center-window {
+            width: 30%;
+            height: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20%;
+        }
+
+        .social-media-window, .reviews-window {
+            width: 25%;
+            height: 60%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .social-media-window {
+            left: 20px;
+        }
+
+        .reviews-window {
+            right: 10px;
+        }
+
+        .center-window h1, .social-media-window h1, .reviews-window h1 {
+            margin: 0;
+            color: white;
+            font-size: 72px;
+        }
+
+        .social-media-window h1 {
+            font-size: 48px; 
+            text-align: left; 
+            width: 100%; 
+        }
+
+        .heart {
+            color: pink;
+        }
+
+        .intro-text, .social-media-text, .reviews-window p {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media-window {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .social-media-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-media-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .social-media-text {
+            color: white;
+            font-size: 14px; 
+            margin: 0;
+        }
+
+        .open-popup-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            font-family: 'Pixelify Sans', sans-serif;
+            outline: none;
+        }
+
+        .open-popup-button:hover {
+            background-color: #444;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #211d1d;
+            width: 60%;
+            max-height: 80%;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .popup button.close {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .popup button.close:hover {
+            background-color: #444;
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .popup-content div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popup-content img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .popup-content h2 {
+            color: white;
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .discord-message {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            padding: 8px;
+            background-color: #2f3136;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .discord-avatar {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .discord-message-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discord-username {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .discord-message-text {
+            color: #b9bbbe;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="pfp.png" alt="Profile Picture" class="profile-pic">
+        <span>PizzaCat's Website</span>
+    </div>
+    
+    <div class="center-window">
+        <h1>Hi <span class="heart">&lt;3</span></h1>
+        <p class="intro-text">Hi. My name is PizzaCat, also known as Julia. I am 14 years old and I like cheese, cheese is very good. I also like technology and main Windows 10 on my i3 12100f. I like girls and drinking tea because tea tastes good and girls look good. That's all, thanks for visiting!</p>
+        <button class="open-popup-button">Type Shit That I Listen To</button>
+    </div>
+
+    <div class="social-media-window">
+        <h1>Social Media</h1>
+        <div class="social-media-content">
+            <img src="img/discord.png" alt="Discord Logo" class="social-media-logo">
+            <p class="social-media-text">- @p1zzac4t_</p>
+        </div>
+    </div>
+
+    <div class="reviews-window">
+        <h1>Reviews</h1>
+        <div class="discord-message">
+            <img src="img/dexi.png" alt="User Avatar" class="discord-avatar">
+            <div class="discord-message-content">
+                <span class="discord-username">dexi</span>
+                <span class="discord-message-text">casdasdadwawdasdfsdfasd</span>
+            </div>
+        </div>
+        <div class="discord-message">
+            <img src="img/delta.png" alt="User Avatar" class="discord-avatar">
+            <div class="discord-message-content">
+                <span class="discord-username">delta</span>
+                <span class="discord-message-text">pretty cool but odd person, overall 9/10</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="popup" class="popup">
+        <button class="close" onclick="closePopup()">X</button>
+        <div class="popup-content">
+            <div>
+                <img src="img/a.png" alt="Weezer - Blue Album">
+                <h2>Weezer - Blue Album</h2>
+            </div>
+            <div>
+                <img src="img/b.jpg" alt="Tita Tivoli - Bimbo Doll">
+                <h2>Tita Tivoli - Bimbo Doll</h2>
+            </div>
+            <div>
+                <img src="img/c.jpg" alt="Basshunter - Dota">
+                <h2>Basshunter - Dota</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        document.querySelector('.open-popup-button').addEventListener('click', function() {
+            openPopup();
+        });
+    </script>
+</body>
+</html>
