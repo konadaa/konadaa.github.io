@@ -258,7 +258,6 @@
     <div class="center-window">
         <h1>Hi <span class="heart">&lt;3</span></h1>
         <p class="intro-text">My name is konada, also known as Julia. I am 14 years old and I like cheese, cheese is very good. I also like technology and main CachyOS on my i3 12100f. I like being alone and drinking tea because tea tastes good and being alone is peaceful. That's all, thanks for visiting!</p>
-        <button class="open-popup-button">Type Shit That I Listen To</button>
     </div>
 
     <div class="social-media-window">
@@ -293,40 +292,5 @@
             </div>
         </div>  
     </div>
-
-    <div id="overlay" class="overlay"></div>
-    <div id="popup" class="popup">
-        <button class="close" onclick="closePopup()">X</button>
-        <div class="popup-content">
-            <div>
-                <img src="img/a.png" alt="Weezer - Blue Album">
-                <h2>Weezer - Blue Album</h2>
-            </div>
-            <div>
-                <img src="img/b.jpg" alt="Tita Tivoli - Bimbo Doll">
-                <h2>Tita Tivoli - Bimbo Doll</h2>
-            </div>
-            <div>
-                <img src="img/c.jpg" alt="Basshunter - Dota">
-                <h2>Basshunter - Dota</h2>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openPopup() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        document.querySelector('.open-popup-button').addEventListener('click', function() {
-            openPopup();
-        });
-    </script>
 </body>
 </html>
